@@ -1,1 +1,8 @@
 .env
+
+**/password.txt
+
+**/*.crt
+**/*.key
+**/*.srl
+**/*.csr
