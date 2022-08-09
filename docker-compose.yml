@@ -29,6 +29,8 @@ services:
     environment:
       - GF_SECURITY_ADMIN_USER=${GRAFANA_USERNAME}
       - GF_SECURITY_ADMIN_PASSWORD=${GRAFANA_PASSWORD}
+      - GF_SERVER_DOMAIN=grafana.${DOMAIN}
+      - GF_SERVER_ROOT_URL=https://%(domain)s/
     env_file: .env
     restart: always
 
