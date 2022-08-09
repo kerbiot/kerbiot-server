@@ -4,6 +4,7 @@ version: '3.8'
 services:
 
   influxdb:
+    container_name: influxdb
     image: influxdb:latest
     ports:
       - '8086:8086'
@@ -20,6 +21,7 @@ services:
     restart: always
 
   grafana:
+    container_name: grafana
     image: grafana/grafana:latest
     ports:
       - '3000:3000'
@@ -36,6 +38,7 @@ services:
 
   # https://github.com/vvatelot/mosquitto-docker-compose
   mosquitto:
+    container_name: mosquitto
     image: eclipse-mosquitto:latest
     volumes:
       - ./mosquitto/:/mosquitto/config/
@@ -46,6 +49,7 @@ services:
     restart: always
 
   telegraf:
+    container_name: telegraf
     image: telegraf:latest
     restart: always
     volumes:
