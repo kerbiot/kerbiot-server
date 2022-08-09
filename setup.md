@@ -1,12 +1,14 @@
 # Sensor database
 
 ## Initial updates
+
 ```sh
 sudo apt update && sudo apt upgrade
 sudo reboot
 ```
 
 ## Install Docker
+
 Ceck the latest installation guide [here](https://docs.docker.com/engine/install/ubuntu/)
 
 ```sh
@@ -26,27 +28,33 @@ sudo groupadd docker
 sudo gpasswd -a $USER docker
 newgrp docker
 ```
-and verify with 
+
+and verify with
+
 ```sh
 docker version
 ```
 
 ## Setup containers
+
 ```sh
 mkdir docker
 ```
+
 Copy over all the files from here inside the `docker` folder.
 
-```
+```sh
 sudo docker-compose up -d
 ```
 
 To set the mosquitto username and password:
+
 ```sh
 docker-compose exec mosquitto mosquitto_passwd -b /mosquitto/config/password.txt user password
 ```
 
 To destry everything
+
 ```sh
 docker compose down
 docker system prune
@@ -66,6 +74,7 @@ sudo cat /etc/sysconfig/iptables
 ```
 
 ## Nginx
+
 ```sh
 sudo apt install nginx
 sudo systemctl start nginx
@@ -83,7 +92,7 @@ sudo nano custom_server.conf
 
 Fill file with:
 
-```
+```conf
 # this is required to proxy Grafana Live WebSocket connections.
 map $http_upgrade $connection_upgrade {
   default upgrade;
@@ -135,6 +144,7 @@ sudo service nginx restart
 ```
 
 ## HTTPS
+
 ```sh
 sudo apt install certbot python3-certbot-nginx 
 sudo certbot --nginx
@@ -146,8 +156,9 @@ For example: `123.123.123.123` -> `7b7b7b7b`
 
 This results in the following domain: `*.7b7b7b7b.nip.io`
 
-Request for all sub domains: 
-- `influx.abcdef.nip.io`, 
+Request for all sub domains:
+
+- `influx.abcdef.nip.io`,
 - `grafana.abcdef.nip.io`
 
 and more if you want to.

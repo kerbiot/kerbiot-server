@@ -2,7 +2,8 @@
 
 Docker compose setup for kerbiot-server.
 
-Contains: 
+Contains:
+
 - InfluxDB: Permanent storage for time series
 - Grafana: Data visualization and alerting
 - Mosquitto: MQTT Broker
@@ -21,6 +22,7 @@ docker-compose exec mosquitto mosquitto_passwd -b /mosquitto/config/password.txt
 ## start
 
 Start the setup with
+
 ```sh
 docker-compose up -d
 ```
