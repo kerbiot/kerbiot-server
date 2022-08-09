@@ -34,8 +34,7 @@
         "fieldConfig": {
           "defaults": {
             "color": {
-              "mode": "continuous-GrYlRd",
-              "seriesBy": "last"
+              "mode": "palette-classic"
             },
             "custom": {
               "axisCenteredZero": false,
@@ -44,8 +43,8 @@
               "axisPlacement": "auto",
               "barAlignment": 0,
               "drawStyle": "line",
-              "fillOpacity": 10,
-              "gradientMode": "scheme",
+              "fillOpacity": 20,
+              "gradientMode": "opacity",
               "hideFrom": {
                 "legend": false,
                 "tooltip": false,
@@ -56,7 +55,7 @@
                 "fill": "solid"
               },
               "lineWidth": 1,
-              "pointSize": 6,
+              "pointSize": 5,
               "scaleDistribution": {
                 "type": "linear"
               },
@@ -70,7 +69,7 @@
                 "mode": "off"
               }
             },
-            "displayName": "${device} ${sensor}",
+            "displayName": "${__series.name}",
             "mappings": [],
             "thresholds": {
               "mode": "absolute",
@@ -92,13 +91,17 @@
         },
         "options": {
           "legend": {
-            "calcs": [],
-            "displayMode": "list",
+            "calcs": [
+              "min",
+              "max",
+              "mean"
+            ],
+            "displayMode": "table",
             "placement": "bottom",
-            "showLegend": false
+            "showLegend": true
           },
           "tooltip": {
-            "mode": "single",
+            "mode": "multi",
             "sort": "none"
           }
         },
@@ -107,15 +110,15 @@
             "datasource": {
               "type": "influxdb"
             },
-            "query": "from(bucket: v.defaultBucket)\r\n|> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n|> filter(fn: (r) => r[\"_measurement\"] == \"${device}\")\r\n|> filter(fn: (r) => r[\"sensor\"] == \"${sensor}\")",
+            "query": "from(bucket: v.defaultBucket)\r\n|> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n|> filter(fn:(r) => r[\"sensor\"] == \"${sensor}\")\r\n|> aggregateWindow(every: v.windowPeriod, fn: mean, createEmpty: false)",
             "refId": "A"
           }
         ],
-        "title": "${device}: ${sensor}",
+        "title": "${sensor}",
+        "transformations": [],
         "type": "timeseries"
       }
     ],
-    "refresh": "5s",
     "schemaVersion": 37,
     "style": "dark",
     "tags": [],
@@ -124,41 +127,19 @@
         {
           "current": {
             "selected": false,
-            "text": "esp",
-            "value": "esp"
+            "text": "Temperature",
+            "value": "Temperature"
           },
           "datasource": {
             "type": "influxdb"
           },
-          "definition": "import \"influxdata/influxdb/v1\"\r\n\r\nv1.measurements(bucket: v.bucket)",
-          "hide": 0,
-          "includeAll": false,
-          "multi": false,
-          "name": "device",
-          "options": [],
-          "query": "import \"influxdata/influxdb/v1\"\r\n\r\nv1.measurements(bucket: v.bucket)",
-          "refresh": 1,
-          "regex": "",
-          "skipUrlSync": false,
-          "sort": 0,
-          "type": "query"
-        },
-        {
-          "current": {
-            "selected": false,
-            "text": "t",
-            "value": "t"
-          },
-          "datasource": {
-            "type": "influxdb"
-          },
-          "definition": "import \"influxdata/influxdb/v1\"\r\n\r\nimport \"influxdata/influxdb/v1\"\r\nv1.tagValues(\r\n    bucket: v.bucket,\r\n    tag: \"sensor\",\r\n    predicate: (r) => true,\r\n    start: v.timeRangeStart\r\n)",
+          "definition": "import \"influxdata/influxdb/v1\"\r\nv1.tagValues(\r\n    bucket: v.bucket,\r\n    tag: \"sensor\",\r\n    predicate: (r) => true,\r\n    start: -1d\r\n)",
           "hide": 0,
           "includeAll": false,
           "multi": false,
           "name": "sensor",
           "options": [],
-          "query": "import \"influxdata/influxdb/v1\"\r\n\r\nimport \"influxdata/influxdb/v1\"\r\nv1.tagValues(\r\n    bucket: v.bucket,\r\n    tag: \"sensor\",\r\n    predicate: (r) => true,\r\n    start: v.timeRangeStart\r\n)",
+          "query": "import \"influxdata/influxdb/v1\"\r\nv1.tagValues(\r\n    bucket: v.bucket,\r\n    tag: \"sensor\",\r\n    predicate: (r) => true,\r\n    start: -1d\r\n)",
           "refresh": 1,
           "regex": "",
           "skipUrlSync": false,
@@ -168,11 +149,11 @@
       ]
     },
     "time": {
-      "from": "now-30m",
+      "from": "now-6h",
       "to": "now"
     },
     "timepicker": {},
     "timezone": "",
-    "title": "Device and sensor",
+    "title": "Compare devices",
     "weekStart": ""
   }
