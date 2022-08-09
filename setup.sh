@@ -12,6 +12,15 @@ else
     exit 1
 fi
 
+if test -f "./mosquitto/certs/server.crt"; then
+    echo "Detected mosquitto server.crt file, not generating certificates"
+else
+    echo "No mosquitto certificates were detected, generating them ..."
+    pushd ./mosquitto/certs
+    ./_generate-certificates.sh $DOMAIN
+    popd
+fi
+
 echo "Updating images ..."
 docker-compose pull
 
