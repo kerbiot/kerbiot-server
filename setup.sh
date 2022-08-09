@@ -29,3 +29,4 @@ docker-compose up -d
 
 echo "Creating mosquitto user $MOSQUITTO_USERNAME"
 docker-compose exec mosquitto mosquitto_passwd -c -b /mosquitto/config/password.txt $MOSQUITTO_USERNAME $MOSQUITTO_PASSWORD
+docker-compose restart mosquitto
