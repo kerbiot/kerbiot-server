@@ -198,11 +198,6 @@
     "templating": {
       "list": [
         {
-          "current": {
-            "selected": false,
-            "text": "yunusESP",
-            "value": "yunusESP"
-          },
           "datasource": {
             "type": "influxdb"
           },
