@@ -37,8 +37,6 @@
             "mode": "palette-classic"
           },
           "custom": {
-            "axisCenteredZero": false,
-            "axisColorMode": "text",
             "axisLabel": "",
             "axisPlacement": "auto",
             "barAlignment": 0,
@@ -119,7 +117,7 @@
       "type": "timeseries"
     }
   ],
-  "schemaVersion": 37,
+  "schemaVersion": 36,
   "style": "dark",
   "tags": [],
   "templating": {
@@ -150,5 +148,6 @@
   "timepicker": {},
   "timezone": "",
   "title": "Compare devices",
+  "version": 5,
   "weekStart": ""
 }

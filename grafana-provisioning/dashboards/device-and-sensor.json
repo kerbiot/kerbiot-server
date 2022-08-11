@@ -38,8 +38,6 @@
             "seriesBy": "last"
           },
           "custom": {
-            "axisCenteredZero": false,
-            "axisColorMode": "text",
             "axisLabel": "",
             "axisPlacement": "auto",
             "barAlignment": 0,
@@ -107,7 +105,7 @@
           "datasource": {
             "type": "influxdb"
           },
-          "query": "from(bucket: v.defaultBucket)\r\n|> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n|> filter(fn: (r) => r[\"_measurement\"] == \"${device}\")\r\n|> filter(fn: (r) => r[\"sensor\"] == \"${sensor}\")",
+          "query": "from(bucket: v.defaultBucket)\r\n|> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n|> filter(fn: (r) => r[\"_measurement\"] == \"${device}\")\r\n|> filter(fn: (r) => r[\"sensor\"] == \"${sensor}\")\r\n|> aggregateWindow(every: v.windowPeriod, fn: mean, createEmpty: false)",
           "refId": "A"
         }
       ],
@@ -116,7 +114,7 @@
     }
   ],
   "refresh": "5s",
-  "schemaVersion": 37,
+  "schemaVersion": 36,
   "style": "dark",
   "tags": [],
   "templating": {
@@ -139,11 +137,6 @@
         "type": "query"
       },
       {
-        "current": {
-          "selected": false,
-          "text": "t",
-          "value": "t"
-        },
         "datasource": {
           "type": "influxdb"
         },
@@ -169,5 +162,6 @@
   "timepicker": {},
   "timezone": "",
   "title": "Device and sensor",
+  "version": 17,
   "weekStart": ""
 }

@@ -51,8 +51,6 @@
             "mode": "continuous-GrYlRd"
           },
           "custom": {
-            "axisCenteredZero": false,
-            "axisColorMode": "text",
             "axisLabel": "",
             "axisPlacement": "auto",
             "barAlignment": 0,
@@ -178,7 +176,7 @@
         "showThresholdLabels": false,
         "showThresholdMarkers": true
       },
-      "pluginVersion": "9.1.0-beta1",
+      "pluginVersion": "9.0.6",
       "targets": [
         {
           "datasource": {
@@ -192,7 +190,7 @@
       "type": "gauge"
     }
   ],
-  "schemaVersion": 37,
+  "schemaVersion": 36,
   "style": "dark",
   "tags": [],
   "templating": {
@@ -227,13 +225,13 @@
         "datasource": {
           "type": "influxdb"
         },
-        "definition": "import \"influxdata/influxdb/v1\"\r\nv1.tagValues(\r\n    bucket: v.bucket,\r\n    tag: \"sensor\",\r\n    predicate: (r) => r._measurement == \"${device}\",\r\n    start: -1d\r\n)",
+        "definition": "import \"influxdata/influxdb/v1\"\r\nv1.tagValues(\r\n    bucket: v.bucket,\r\n    tag: \"sensor\",\r\n    predicate: (r) => r._measurement == \"${device}\",\r\n    start: v.timeRangeStart\r\n)",
         "hide": 0,
         "includeAll": true,
         "multi": true,
         "name": "sensor",
         "options": [],
-        "query": "import \"influxdata/influxdb/v1\"\r\nv1.tagValues(\r\n    bucket: v.bucket,\r\n    tag: \"sensor\",\r\n    predicate: (r) => r._measurement == \"${device}\",\r\n    start: -1d\r\n)",
+        "query": "import \"influxdata/influxdb/v1\"\r\nv1.tagValues(\r\n    bucket: v.bucket,\r\n    tag: \"sensor\",\r\n    predicate: (r) => r._measurement == \"${device}\",\r\n    start: v.timeRangeStart\r\n)",
         "refresh": 1,
         "regex": "",
         "skipUrlSync": false,
@@ -249,5 +247,6 @@
   "timepicker": {},
   "timezone": "",
   "title": "Device overview",
+  "version": 12,
   "weekStart": ""
 }
