@@ -125,11 +125,6 @@
     "templating": {
       "list": [
         {
-          "current": {
-            "selected": false,
-            "text": "Temperature",
-            "value": "Temperature"
-          },
           "datasource": {
             "type": "influxdb"
           },
@@ -149,7 +144,7 @@
       ]
     },
     "time": {
-      "from": "now-6h",
+      "from": "now-24h",
       "to": "now"
     },
     "timepicker": {},

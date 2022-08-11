@@ -122,11 +122,6 @@
     "templating": {
       "list": [
         {
-          "current": {
-            "selected": false,
-            "text": "esp",
-            "value": "esp"
-          },
           "datasource": {
             "type": "influxdb"
           },
@@ -168,7 +163,7 @@
       ]
     },
     "time": {
-      "from": "now-30m",
+      "from": "now-24h",
       "to": "now"
     },
     "timepicker": {},
