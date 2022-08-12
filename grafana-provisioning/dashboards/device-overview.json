@@ -190,7 +190,7 @@
       "type": "gauge"
     }
   ],
-  "refresh": "60s",
+  "refresh": "1m",
   "schemaVersion": 36,
   "style": "dark",
   "tags": [],
