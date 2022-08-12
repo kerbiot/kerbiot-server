@@ -58,7 +58,7 @@
               "type": "linear"
             },
             "showPoints": "never",
-            "spanNulls": false,
+            "spanNulls": 120000,
             "stacking": {
               "group": "A",
               "mode": "none"
@@ -108,7 +108,7 @@
           "datasource": {
             "type": "influxdb"
           },
-          "query": "from(bucket: v.defaultBucket)\r\n|> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n|> filter(fn:(r) => r[\"sensor\"] == \"${sensor}\")\r\n|> aggregateWindow(every: v.windowPeriod, fn: mean, createEmpty: false)",
+          "query": "from(bucket: v.defaultBucket)\r\n|> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n|> filter(fn:(r) => r[\"sensor\"] == \"${sensor}\")\r\n|> aggregateWindow(every: v.windowPeriod, fn: mean, createEmpty: true)",
           "refId": "A"
         }
       ],
@@ -117,6 +117,7 @@
       "type": "timeseries"
     }
   ],
+  "refresh": "5s",
   "schemaVersion": 36,
   "style": "dark",
   "tags": [],
@@ -148,6 +149,5 @@
   "timepicker": {},
   "timezone": "",
   "title": "Compare devices",
-  "version": 5,
   "weekStart": ""
 }
