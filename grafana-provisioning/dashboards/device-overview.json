@@ -119,7 +119,7 @@
           "datasource": {
             "type": "influxdb"
           },
-          "query": "from(bucket: v.defaultBucket)\r\n|> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n|> filter(fn: (r) => r[\"_measurement\"] == \"${device}\")\r\n|> filter(fn: (r) => r[\"sensor\"] == \"${sensor}\")\r\n|> aggregateWindow(every: v.windowPeriod, fn: mean, createEmpty: ${createEmpty})",
+          "query": "from(bucket: v.defaultBucket)\r\n|> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n|> filter(fn: (r) => r[\"_measurement\"] == \"${device}\")\r\n|> filter(fn: (r) => r[\"sensor\"] == \"${sensor}\")\r\n|> aggregateWindow(every: v.windowPeriod, fn: ${Selector}, createEmpty: ${createEmpty})",
           "refId": "A"
         }
       ],
@@ -182,7 +182,7 @@
           "datasource": {
             "type": "influxdb"
           },
-          "query": "from(bucket: v.defaultBucket)\r\n|> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n|> filter(fn: (r) => r[\"_measurement\"] == \"${device}\")\r\n|> filter(fn: (r) => r[\"sensor\"] == \"${sensor}\")\r\n|> aggregateWindow(every: v.windowPeriod, fn: mean, createEmpty: false)",
+          "query": "from(bucket: v.defaultBucket)\r\n|> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n|> filter(fn: (r) => r[\"_measurement\"] == \"${device}\")\r\n|> filter(fn: (r) => r[\"sensor\"] == \"${sensor}\")\r\n|> aggregateWindow(every: v.windowPeriod, fn: ${Selector}, createEmpty: false)",
           "refId": "A"
         }
       ],
@@ -263,6 +263,58 @@
           }
         ],
         "query": "true, false",
+        "queryValue": "",
+        "skipUrlSync": false,
+        "type": "custom"
+      },
+      {
+        "current": {
+          "selected": true,
+          "text": "mean",
+          "value": "mean"
+        },
+        "hide": 0,
+        "includeAll": false,
+        "multi": false,
+        "name": "Selector",
+        "options": [
+          {
+            "selected": true,
+            "text": "mean",
+            "value": "mean"
+          },
+          {
+            "selected": false,
+            "text": "median",
+            "value": "median"
+          },
+          {
+            "selected": false,
+            "text": "max",
+            "value": "max"
+          },
+          {
+            "selected": false,
+            "text": "min",
+            "value": "min"
+          },
+          {
+            "selected": false,
+            "text": "count",
+            "value": "count"
+          },
+          {
+            "selected": false,
+            "text": "spread",
+            "value": "spread"
+          },
+          {
+            "selected": false,
+            "text": "sum",
+            "value": "sum"
+          }
+        ],
+        "query": "mean, median, max, min, count, spread, sum",
         "queryValue": "",
         "skipUrlSync": false,
         "type": "custom"
