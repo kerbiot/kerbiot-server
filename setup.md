@@ -111,6 +111,8 @@ server {
   listen 80;
   server_name influx.*;
 
+  client_max_body_size 10G;
+
   location / {
     proxy_pass http://influx;
   }
