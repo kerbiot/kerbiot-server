@@ -330,6 +330,7 @@
             "mode": "thresholds"
           },
           "custom": {
+            "axisLabel": "",
             "axisPlacement": "auto",
             "barAlignment": 0,
             "drawStyle": "line",
@@ -534,8 +535,8 @@
       {
         "current": {
           "selected": true,
-          "text": "mean",
-          "value": "mean"
+          "text": "max",
+          "value": "max"
         },
         "hide": 0,
         "includeAll": false,
@@ -543,7 +544,7 @@
         "name": "Selector",
         "options": [
           {
-            "selected": true,
+            "selected": false,
             "text": "mean",
             "value": "mean"
           },
@@ -553,7 +554,7 @@
             "value": "median"
           },
           {
-            "selected": false,
+            "selected": true,
             "text": "max",
             "value": "max"
           },
