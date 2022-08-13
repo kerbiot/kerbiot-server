@@ -111,7 +111,7 @@
               "type": "linear"
             },
             "showPoints": "never",
-            "spanNulls": false,
+            "spanNulls": 120000,
             "stacking": {
               "group": "A",
               "mode": "none"
@@ -165,7 +165,7 @@
           "datasource": {
             "type": "influxdb"
           },
-          "query": "from(bucket: \"_monitoring\")\r\n|> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n|> filter(fn: (r) => r[\"_measurement\"] == \"cpu\")\r\n|> filter(fn: (r) => r[\"_field\"] == \"usage_system\")\r\n|> filter(fn: (r) => r[\"cpu\"] == \"cpu-total\")\r\n|> aggregateWindow(every: v.windowPeriod, fn: mean, createEmpty: false)",
+          "query": "from(bucket: \"_monitoring\")\r\n|> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n|> filter(fn: (r) => r[\"_measurement\"] == \"cpu\")\r\n|> filter(fn: (r) => r[\"_field\"] == \"usage_system\")\r\n|> filter(fn: (r) => r[\"cpu\"] == \"cpu-total\")\r\n|> aggregateWindow(every: v.windowPeriod, fn: ${Selector}, createEmpty: ${createEmpty})",
           "refId": "A"
         }
       ],
@@ -203,7 +203,7 @@
               "type": "linear"
             },
             "showPoints": "never",
-            "spanNulls": false,
+            "spanNulls": 120000,
             "stacking": {
               "group": "A",
               "mode": "none"
@@ -284,7 +284,7 @@
           "datasource": {
             "type": "influxdb"
           },
-          "query": "from(bucket: \"_monitoring\")\r\n|> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n|> filter(fn: (r) => r[\"_measurement\"] == \"system\")\r\n|> filter(fn: (r) => r[\"_field\"] == \"load1\" or r[\"_field\"] == \"load15\" or r[\"_field\"] == \"load5\")\r\n|> aggregateWindow(every: v.windowPeriod, fn: mean, createEmpty: false)",
+          "query": "from(bucket: \"_monitoring\")\r\n|> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n|> filter(fn: (r) => r[\"_measurement\"] == \"system\")\r\n|> filter(fn: (r) => r[\"_field\"] == \"load1\" or r[\"_field\"] == \"load15\" or r[\"_field\"] == \"load5\")\r\n|> aggregateWindow(every: v.windowPeriod, fn: ${Selector}, createEmpty: ${createEmpty})",
           "refId": "A"
         }
       ],
@@ -318,7 +318,7 @@
               "type": "linear"
             },
             "showPoints": "never",
-            "spanNulls": false,
+            "spanNulls": 120000,
             "stacking": {
               "group": "A",
               "mode": "none"
@@ -372,7 +372,7 @@
           "datasource": {
             "type": "influxdb"
           },
-          "query": "from(bucket: \"_monitoring\")\r\n|> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n|> filter(fn: (r) => r[\"_measurement\"] == \"mem\")\r\n|> filter(fn: (r) => r[\"_field\"] == \"used_percent\")\r\n|> aggregateWindow(every: v.windowPeriod, fn: mean, createEmpty: false)",
+          "query": "from(bucket: \"_monitoring\")\r\n|> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n|> filter(fn: (r) => r[\"_measurement\"] == \"mem\")\r\n|> filter(fn: (r) => r[\"_field\"] == \"used_percent\")\r\n|> aggregateWindow(every: v.windowPeriod, fn: ${Selector}, createEmpty: ${createEmpty})",
           "refId": "A"
         }
       ],
@@ -407,7 +407,7 @@
               "type": "linear"
             },
             "showPoints": "never",
-            "spanNulls": false,
+            "spanNulls": 120000,
             "stacking": {
               "group": "A",
               "mode": "none"
@@ -461,7 +461,7 @@
           "datasource": {
             "type": "influxdb"
           },
-          "query": "from(bucket: \"_monitoring\")\r\n|> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n|> filter(fn: (r) => r[\"_measurement\"] == \"disk\")\r\n|> filter(fn: (r) => r[\"_field\"] == \"used_percent\")\r\n|> aggregateWindow(every: v.windowPeriod, fn: mean, createEmpty: false)",
+          "query": "from(bucket: \"_monitoring\")\r\n|> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n|> filter(fn: (r) => r[\"_measurement\"] == \"disk\")\r\n|> filter(fn: (r) => r[\"_field\"] == \"used_percent\")\r\n|> aggregateWindow(every: v.windowPeriod, fn: ${Selector}, createEmpty: ${createEmpty})",
           "refId": "A"
         }
       ],
@@ -474,7 +474,87 @@
   "style": "dark",
   "tags": [],
   "templating": {
-    "list": []
+    "list": [
+      {
+        "current": {
+          "selected": true,
+          "text": "true",
+          "value": "true"
+        },
+        "hide": 0,
+        "includeAll": false,
+        "multi": false,
+        "name": "createEmpty",
+        "options": [
+          {
+            "selected": true,
+            "text": "true",
+            "value": "true"
+          },
+          {
+            "selected": false,
+            "text": "false",
+            "value": "false"
+          }
+        ],
+        "query": "true, false",
+        "queryValue": "",
+        "skipUrlSync": false,
+        "type": "custom"
+      },
+      {
+        "current": {
+          "selected": true,
+          "text": "mean",
+          "value": "mean"
+        },
+        "hide": 0,
+        "includeAll": false,
+        "multi": false,
+        "name": "Selector",
+        "options": [
+          {
+            "selected": true,
+            "text": "mean",
+            "value": "mean"
+          },
+          {
+            "selected": false,
+            "text": "median",
+            "value": "median"
+          },
+          {
+            "selected": false,
+            "text": "max",
+            "value": "max"
+          },
+          {
+            "selected": false,
+            "text": "min",
+            "value": "min"
+          },
+          {
+            "selected": false,
+            "text": "count",
+            "value": "count"
+          },
+          {
+            "selected": false,
+            "text": "spread",
+            "value": "spread"
+          },
+          {
+            "selected": false,
+            "text": "sum",
+            "value": "sum"
+          }
+        ],
+        "query": "mean, median, max, min, count, spread, sum",
+        "queryValue": "",
+        "skipUrlSync": false,
+        "type": "custom"
+      }
+    ]
   },
   "time": {
     "from": "now-24h",
