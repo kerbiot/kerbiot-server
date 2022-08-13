@@ -165,7 +165,7 @@
           "datasource": {
             "type": "influxdb"
           },
-          "query": "from(bucket: \"_monitoring\")\r\n|> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n|> filter(fn: (r) => r[\"_measurement\"] == \"cpu\")\r\n|> filter(fn: (r) => r[\"_field\"] == \"usage_system\")\r\n|> filter(fn: (r) => r[\"cpu\"] == \"cpu-total\")\r\n|> aggregateWindow(every: v.windowPeriod, fn: ${Selector}, createEmpty: ${createEmpty})",
+          "query": "from(bucket: \"_monitoring\")\r\n|> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n|> filter(fn: (r) => r[\"_measurement\"] == \"cpu\")\r\n|> filter(fn: (r) => r[\"_field\"] == \"usage_idle\")\r\n|> filter(fn: (r) => r[\"cpu\"] == \"cpu-total\")\r\n|> map(fn: (r) => ({r with _value: 100.0 - r._value}))\r\n|> aggregateWindow(every: v.windowPeriod, fn: ${Selector}, createEmpty: ${createEmpty})",
           "refId": "A"
         }
       ],
