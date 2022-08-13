@@ -2,6 +2,6 @@ apiVersion: 1
 
 providers:
   - name: kerbiot
-    folder: Presets
     options:
+      foldersFromFilesStructure: true
       path: /etc/grafana/provisioning/dashboards
