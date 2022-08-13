@@ -233,6 +233,13 @@
               {
                 "id": "displayName",
                 "value": "1 minute"
+              },
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "red",
+                  "mode": "fixed"
+                }
               }
             ]
           },
@@ -245,6 +252,17 @@
               {
                 "id": "displayName",
                 "value": "5 minutes"
+              },
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "orange",
+                  "mode": "fixed"
+                }
+              },
+              {
+                "id": "custom.lineWidth",
+                "value": 2
               }
             ]
           },
@@ -257,6 +275,17 @@
               {
                 "id": "displayName",
                 "value": "15 minutes"
+              },
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "green",
+                  "mode": "fixed"
+                }
+              },
+              {
+                "id": "custom.lineWidth",
+                "value": 3
               }
             ]
           }
