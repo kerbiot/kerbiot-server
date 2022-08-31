@@ -35,7 +35,7 @@ groups:
             conditions:
             - evaluator:
                 params:
-                - 3600
+                - 1800
                 type: gt
               operator:
                 type: and
