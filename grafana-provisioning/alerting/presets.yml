@@ -76,7 +76,8 @@ groups:
             hide: false
             intervalMs: 1000
             maxDataPoints: 43200
-            query: "from(bucket: v.defaultBucket)\r\n 
+            query: "import \"strings\"\r\n 
+              from(bucket: v.defaultBucket)\r\n 
               |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n
               |> last()\r\n
               |> filter(fn: (r) => strings.containsAny(v: r[\"sensor\"], chars: \"CO2\"))"
