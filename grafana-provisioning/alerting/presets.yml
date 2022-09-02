@@ -115,6 +115,6 @@ groups:
         execErrState: Alerting
         for: 5m
         annotations:
-          summary: Device has not sent any sensor data in a long time.
+          summary: Device has reported high CO2 levels.
         labels:
           device: '{{ $$value | reReplaceAll `.*metric=''(.*)''.*` "$$1" }}'
