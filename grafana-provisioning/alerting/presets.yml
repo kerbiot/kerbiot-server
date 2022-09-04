@@ -81,7 +81,7 @@ groups:
               from(bucket: v.defaultBucket)\r\n 
               |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n
               |> last()\r\n
-              |> filter(fn: (r) => strings.containsAny(v: r[\"sensor\"], chars: \"CO2\"))"
+              |> filter(fn: (r) => strings.containsStr(v: r[\"sensor\"], substr: \"CO2\"))"
             refId: A
         - refId: B
           queryType: ''
@@ -93,8 +93,9 @@ groups:
             conditions:
             - evaluator:
                 params:
+                - 1
                 - 1500
-                type: gt
+                type: outside_range
               operator:
                 type: and
               query:
