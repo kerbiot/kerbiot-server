@@ -181,7 +181,7 @@
         "showThresholdLabels": false,
         "showThresholdMarkers": true
       },
-      "pluginVersion": "9.1.1",
+      "pluginVersion": "9.1.4",
       "targets": [
         {
           "datasource": {
@@ -203,7 +203,8 @@
     "list": [
       {
         "datasource": {
-          "type": "influxdb"
+          "type": "influxdb",
+          "uid": "influxdb"
         },
         "definition": "import \"influxdata/influxdb/v1\"\nv1.measurements(bucket: v.bucket)",
         "hide": 0,
@@ -229,7 +230,8 @@
           ]
         },
         "datasource": {
-          "type": "influxdb"
+          "type": "influxdb",
+          "uid": "influxdb"
         },
         "definition": "import \"influxdata/influxdb/v1\"\r\nv1.tagValues(\r\n    bucket: v.bucket,\r\n    tag: \"sensor\",\r\n    predicate: (r) => r._measurement == \"${device}\",\r\n    start: v.timeRangeStart\r\n)",
         "hide": 0,
