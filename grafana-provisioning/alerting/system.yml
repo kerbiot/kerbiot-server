@@ -117,5 +117,7 @@ groups:
         for: 5m
         annotations:
           summary: Disk is almost full
+          __dashboardUid__: system-overview
+          __panelId__: '5'
         labels:
           monitoring: 'true'
