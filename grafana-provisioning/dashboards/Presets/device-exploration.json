@@ -332,6 +332,7 @@
   },
   "timepicker": {},
   "timezone": "",
-  "title": "Device overview",
+  "title": "Device exploration",
+  "uid": "device-exploration",
   "weekStart": ""
 }

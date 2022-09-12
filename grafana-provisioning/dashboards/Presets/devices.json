@@ -42,7 +42,7 @@
               {
                 "targetBlank": true,
                 "title": "Dashboard",
-                "url": "/d/RZnR0hm4k/device-overview?orgId=1&var-device=${__series.name}&from=${__from}&to=${__to}"
+                "url": "/d/device-exploration/device-exploration?orgId=1&var-device=${__series.name}&from=${__from}&to=${__to}"
               }
             ],
             "mappings": [],
@@ -122,7 +122,7 @@
               {
                 "targetBlank": true,
                 "title": "Dashboard",
-                "url": "/d/RZnR0hm4k/device-overview?orgId=1&var-device=${__series.name}&from=${__from}&to=${__to}"
+                "url": "/d/device-exploration/device-exploration?orgId=1&var-device=${__series.name}&from=${__from}&to=${__to}"
               }
             ],
             "mappings": [],
