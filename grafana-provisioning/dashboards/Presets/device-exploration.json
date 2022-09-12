@@ -176,7 +176,7 @@
         "name": "sensor",
         "options": [],
         "query": "import \"influxdata/influxdb/v1\"\r\nv1.tagValues(\r\n    bucket: v.bucket,\r\n    tag: \"sensor\",\r\n    predicate: (r) => r._measurement == \"${device}\",\r\n    start: v.timeRangeStart\r\n)",
-        "refresh": 1,
+        "refresh": 2,
         "regex": "",
         "skipUrlSync": false,
         "sort": 0,
@@ -272,6 +272,5 @@
   "timezone": "",
   "title": "Device exploration",
   "uid": "device-exploration",
-  "version": 2,
   "weekStart": ""
 }
