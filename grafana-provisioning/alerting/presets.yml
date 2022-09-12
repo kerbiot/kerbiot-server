@@ -120,5 +120,7 @@ groups:
         annotations:
           summary: Device has reported high CO2 levels.
           description: Device '{{ $$value | reReplaceAll `.*metric='(.*)'.*` "$$1" }}' has reported a CO2 value of **{{ $$value | reReplaceAll `.*value=(.*) \]` "$$1" }} ppm**.
+          __dashboardUid__: device-overview
+          __panelId__: '2'
         labels:
           device: '{{ $$value | reReplaceAll `.*metric=''(.*)''.*` "$$1" }}'
