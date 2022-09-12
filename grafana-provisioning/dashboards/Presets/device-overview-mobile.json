@@ -1,0 +1,367 @@
+{
+    "annotations": {
+      "list": [
+        {
+          "builtIn": 1,
+          "datasource": {
+            "type": "grafana",
+            "uid": "-- Grafana --"
+          },
+          "enable": true,
+          "hide": true,
+          "iconColor": "rgba(0, 211, 255, 1)",
+          "name": "Annotations & Alerts",
+          "target": {
+            "limit": 100,
+            "matchAny": false,
+            "tags": [],
+            "type": "dashboard"
+          },
+          "type": "dashboard"
+        }
+      ]
+    },
+    "editable": true,
+    "fiscalYearStartMonth": 0,
+    "graphTooltip": 2,
+    "links": [],
+    "liveNow": false,
+    "panels": [
+      {
+        "datasource": {
+          "type": "influxdb",
+          "uid": "influxdb"
+        },
+        "fieldConfig": {
+          "defaults": {
+            "color": {
+              "mode": "thresholds"
+            },
+            "displayName": "${__field.labels.sensor}",
+            "mappings": [],
+            "thresholds": {
+              "mode": "absolute",
+              "steps": [
+                {
+                  "color": "green",
+                  "value": null
+                },
+                {
+                  "color": "orange",
+                  "value": 800
+                },
+                {
+                  "color": "semi-dark-red",
+                  "value": 1500
+                },
+                {
+                  "color": "dark-purple",
+                  "value": 2000
+                }
+              ]
+            },
+            "unit": "ppm"
+          },
+          "overrides": []
+        },
+        "gridPos": {
+          "h": 4,
+          "w": 24,
+          "x": 0,
+          "y": 0
+        },
+        "id": 5,
+        "options": {
+          "colorMode": "background",
+          "graphMode": "area",
+          "justifyMode": "center",
+          "orientation": "auto",
+          "reduceOptions": {
+            "calcs": [
+              "lastNotNull"
+            ],
+            "fields": "",
+            "values": false
+          },
+          "text": {},
+          "textMode": "value"
+        },
+        "pluginVersion": "9.1.4",
+        "targets": [
+          {
+            "datasource": {
+              "type": "influxdb",
+              "uid": "influxdb"
+            },
+            "query": "from(bucket: v.defaultBucket)\r\n|> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n|> filter(fn: (r) => r[\"_measurement\"] == \"${device}\")\r\n|> filter(fn: (r) => r[\"sensor\"] == \"CO2 in ppm\")\r\n|> aggregateWindow(every: v.windowPeriod, fn: ${selector}, createEmpty: ${createEmpty})",
+            "refId": "A"
+          }
+        ],
+        "type": "stat"
+      },
+      {
+        "datasource": {
+          "type": "influxdb",
+          "uid": "influxdb"
+        },
+        "fieldConfig": {
+          "defaults": {
+            "color": {
+              "mode": "thresholds"
+            },
+            "decimals": 1,
+            "displayName": "${__field.labels.sensor}",
+            "mappings": [],
+            "thresholds": {
+              "mode": "absolute",
+              "steps": [
+                {
+                  "color": "dark-blue",
+                  "value": null
+                },
+                {
+                  "color": "blue",
+                  "value": 17
+                },
+                {
+                  "color": "green",
+                  "value": 20
+                },
+                {
+                  "color": "orange",
+                  "value": 23
+                },
+                {
+                  "color": "red",
+                  "value": 26
+                },
+                {
+                  "color": "dark-purple",
+                  "value": 29
+                }
+              ]
+            },
+            "unit": "celsius"
+          },
+          "overrides": []
+        },
+        "gridPos": {
+          "h": 4,
+          "w": 24,
+          "x": 0,
+          "y": 4
+        },
+        "id": 6,
+        "options": {
+          "colorMode": "background",
+          "graphMode": "area",
+          "justifyMode": "auto",
+          "orientation": "auto",
+          "reduceOptions": {
+            "calcs": [
+              "lastNotNull"
+            ],
+            "fields": "",
+            "values": false
+          },
+          "textMode": "value"
+        },
+        "pluginVersion": "9.1.4",
+        "targets": [
+          {
+            "datasource": {
+              "type": "influxdb",
+              "uid": "influxdb"
+            },
+            "query": "from(bucket: v.defaultBucket)\r\n|> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n|> filter(fn: (r) => r[\"_measurement\"] == \"${device}\")\r\n|> filter(fn: (r) => r[\"sensor\"] == \"Temperature in °C\")\r\n|> aggregateWindow(every: v.windowPeriod, fn: ${selector}, createEmpty: ${createEmpty})",
+            "refId": "A"
+          }
+        ],
+        "type": "stat"
+      },
+      {
+        "datasource": {
+          "type": "influxdb",
+          "uid": "influxdb"
+        },
+        "fieldConfig": {
+          "defaults": {
+            "color": {
+              "mode": "thresholds"
+            },
+            "decimals": 0,
+            "displayName": "${__field.labels.sensor}",
+            "mappings": [],
+            "thresholds": {
+              "mode": "absolute",
+              "steps": [
+                {
+                  "color": "semi-dark-red",
+                  "value": null
+                },
+                {
+                  "color": "#EAB839",
+                  "value": 35
+                },
+                {
+                  "color": "green",
+                  "value": 40
+                },
+                {
+                  "color": "orange",
+                  "value": 60
+                },
+                {
+                  "color": "semi-dark-red",
+                  "value": 65
+                }
+              ]
+            },
+            "unit": "humidity"
+          },
+          "overrides": []
+        },
+        "gridPos": {
+          "h": 4,
+          "w": 24,
+          "x": 0,
+          "y": 8
+        },
+        "id": 7,
+        "options": {
+          "colorMode": "background",
+          "graphMode": "area",
+          "justifyMode": "center",
+          "orientation": "auto",
+          "reduceOptions": {
+            "calcs": [
+              "lastNotNull"
+            ],
+            "fields": "",
+            "values": false
+          },
+          "textMode": "value"
+        },
+        "pluginVersion": "9.1.4",
+        "targets": [
+          {
+            "datasource": {
+              "type": "influxdb",
+              "uid": "influxdb"
+            },
+            "query": "import \"strings\"\r\n\r\nfrom(bucket: v.defaultBucket)\r\n|> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n|> filter(fn: (r) => r[\"_measurement\"] == \"${device}\")\r\n|> filter(fn: (r) => r[\"sensor\"] == \"Humidity in %\")\r\n|> aggregateWindow(every: v.windowPeriod, fn: ${selector}, createEmpty: ${createEmpty})",
+            "refId": "A"
+          }
+        ],
+        "type": "stat"
+      }
+    ],
+    "refresh": "1m",
+    "schemaVersion": 37,
+    "style": "dark",
+    "tags": [],
+    "templating": {
+      "list": [
+        {
+          "datasource": {
+            "type": "influxdb",
+            "uid": "influxdb"
+          },
+          "definition": "import \"influxdata/influxdb/v1\"\r\nv1.measurements(bucket: v.bucket)",
+          "hide": 0,
+          "includeAll": false,
+          "label": "Device",
+          "multi": false,
+          "name": "device",
+          "options": [],
+          "query": "import \"influxdata/influxdb/v1\"\r\nv1.measurements(bucket: v.bucket)",
+          "refresh": 1,
+          "regex": "",
+          "skipUrlSync": false,
+          "sort": 0,
+          "type": "query"
+        },
+        {
+          "current": {
+            "selected": true,
+            "text": "true",
+            "value": "true"
+          },
+          "hide": 0,
+          "includeAll": false,
+          "label": "Show missing",
+          "multi": false,
+          "name": "createEmpty",
+          "options": [
+            {
+              "selected": true,
+              "text": "true",
+              "value": "true"
+            },
+            {
+              "selected": false,
+              "text": "false",
+              "value": "false"
+            }
+          ],
+          "query": "true, false",
+          "queryValue": "",
+          "skipUrlSync": false,
+          "type": "custom"
+        },
+        {
+          "current": {
+            "selected": true,
+            "text": "max",
+            "value": "max"
+          },
+          "description": "",
+          "hide": 0,
+          "includeAll": false,
+          "label": "Interpolation",
+          "multi": false,
+          "name": "selector",
+          "options": [
+            {
+              "selected": true,
+              "text": "max",
+              "value": "max"
+            },
+            {
+              "selected": false,
+              "text": "min",
+              "value": "min"
+            },
+            {
+              "selected": false,
+              "text": "mean",
+              "value": "mean"
+            },
+            {
+              "selected": false,
+              "text": "median",
+              "value": "median"
+            },
+            {
+              "selected": false,
+              "text": "spread",
+              "value": "spread"
+            }
+          ],
+          "query": "max, min, mean, median, spread",
+          "queryValue": "",
+          "skipUrlSync": false,
+          "type": "custom"
+        }
+      ]
+    },
+    "time": {
+      "from": "now-24h",
+      "to": "now"
+    },
+    "timepicker": {},
+    "timezone": "",
+    "title": "Device overview (Mobile)",
+    "uid": "device-overview-mobile",
+    "weekStart": ""
+  }
