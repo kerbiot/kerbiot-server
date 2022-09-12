@@ -65,7 +65,7 @@
         "overrides": []
       },
       "gridPos": {
-        "h": 6,
+        "h": 7,
         "w": 24,
         "x": 0,
         "y": 0
@@ -146,10 +146,10 @@
         "overrides": []
       },
       "gridPos": {
-        "h": 6,
+        "h": 7,
         "w": 24,
         "x": 0,
-        "y": 6
+        "y": 7
       },
       "id": 6,
       "options": {
@@ -222,10 +222,10 @@
         "overrides": []
       },
       "gridPos": {
-        "h": 6,
+        "h": 7,
         "w": 24,
         "x": 0,
-        "y": 12
+        "y": 14
       },
       "id": 7,
       "options": {
@@ -283,7 +283,7 @@
       },
       {
         "current": {
-          "selected": true,
+          "selected": false,
           "text": "true",
           "value": "true"
         },
@@ -311,7 +311,7 @@
       },
       {
         "current": {
-          "selected": true,
+          "selected": false,
           "text": "max",
           "value": "max"
         },
