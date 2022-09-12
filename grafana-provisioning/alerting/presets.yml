@@ -61,6 +61,8 @@ groups:
         annotations:
           summary: Device has not sent any sensor data in a long time.
           description: Device '{{ $$value | reReplaceAll `.*metric='(.*)'.*` "$$1" }}' has not sent a sensor value '{{ $$value | reReplaceAll `.*sensor=(.*), .*` "$$1" }}' in **{{ $$value | reReplaceAll `.*value=(.*) \]` "$$1" }} seconds**.
+          __dashboardUid__: device-overview
+          __panelId__: '15'
         labels:
           device: '{{ $$value | reReplaceAll `.*metric=''(.*)''.*` "$$1" }}'
       - uid: co2
