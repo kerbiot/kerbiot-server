@@ -60,9 +60,8 @@ groups:
         for: 5m
         annotations:
           summary: CPU usage is high
-          annotations:
-            __dashboardUid__: system-overview
-            __panelId__: '2'
+          __dashboardUid__: system-overview
+          __panelId__: '2'
         labels:
           monitoring: 'true'
       - uid: disk
