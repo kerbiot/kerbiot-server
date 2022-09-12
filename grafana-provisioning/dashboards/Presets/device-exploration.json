@@ -23,7 +23,7 @@
   },
   "editable": true,
   "fiscalYearStartMonth": 0,
-  "graphTooltip": 1,
+  "graphTooltip": 2,
   "links": [],
   "liveNow": false,
   "panels": [
@@ -66,13 +66,13 @@
               "viz": false
             },
             "lineInterpolation": "smooth",
-            "lineWidth": 1,
+            "lineWidth": 2,
             "pointSize": 5,
             "scaleDistribution": {
               "type": "linear"
             },
             "showPoints": "never",
-            "spanNulls": 120000,
+            "spanNulls": 300000,
             "stacking": {
               "group": "A",
               "mode": "none"
@@ -97,7 +97,7 @@
       },
       "gridPos": {
         "h": 10,
-        "w": 20,
+        "w": 24,
         "x": 0,
         "y": 1
       },
@@ -129,70 +129,6 @@
       ],
       "title": "${sensor}",
       "type": "timeseries"
-    },
-    {
-      "datasource": {
-        "type": "influxdb"
-      },
-      "description": "",
-      "fieldConfig": {
-        "defaults": {
-          "color": {
-            "mode": "thresholds"
-          },
-          "displayName": "${sensor}",
-          "mappings": [],
-          "thresholds": {
-            "mode": "percentage",
-            "steps": [
-              {
-                "color": "green",
-                "value": null
-              },
-              {
-                "color": "#EAB839",
-                "value": 75
-              },
-              {
-                "color": "red",
-                "value": 90
-              }
-            ]
-          }
-        },
-        "overrides": []
-      },
-      "gridPos": {
-        "h": 10,
-        "w": 4,
-        "x": 20,
-        "y": 1
-      },
-      "id": 3,
-      "options": {
-        "orientation": "auto",
-        "reduceOptions": {
-          "calcs": [
-            "lastNotNull"
-          ],
-          "fields": "",
-          "values": false
-        },
-        "showThresholdLabels": false,
-        "showThresholdMarkers": true
-      },
-      "pluginVersion": "9.1.4",
-      "targets": [
-        {
-          "datasource": {
-            "type": "influxdb"
-          },
-          "query": "from(bucket: v.defaultBucket)\r\n|> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n|> filter(fn: (r) => r[\"_measurement\"] == \"${device}\")\r\n|> filter(fn: (r) => r[\"sensor\"] == \"${sensor}\")\r\n|> aggregateWindow(every: v.windowPeriod, fn: ${Selector}, createEmpty: false)",
-          "refId": "A"
-        }
-      ],
-      "title": "${sensor}",
-      "type": "gauge"
     }
   ],
   "refresh": "1m",
@@ -336,5 +272,6 @@
   "timezone": "",
   "title": "Device exploration",
   "uid": "device-exploration",
+  "version": 2,
   "weekStart": ""
 }
