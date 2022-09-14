@@ -152,15 +152,15 @@
               },
               {
                 "color": "orange",
-                "value": 800
+                "value": 1000
               },
               {
                 "color": "semi-dark-red",
-                "value": 1500
+                "value": 2000
               },
               {
                 "color": "dark-purple",
-                "value": 2000
+                "value": 5000
               }
             ]
           },
@@ -225,15 +225,15 @@
               },
               {
                 "color": "orange",
-                "value": 800
+                "value": 1000
               },
               {
                 "color": "semi-dark-red",
-                "value": 1500
+                "value": 2000
               },
               {
                 "color": "dark-purple",
-                "value": 2000
+                "value": 5000
               }
             ]
           },
@@ -296,15 +296,15 @@
               },
               {
                 "color": "orange",
-                "value": 800
+                "value": 1000
               },
               {
                 "color": "semi-dark-red",
-                "value": 1500
+                "value": 2000
               },
               {
                 "color": "dark-purple",
-                "value": 2000
+                "value": 5000
               }
             ]
           },
@@ -367,15 +367,15 @@
               },
               {
                 "color": "orange",
-                "value": 800
+                "value": 1000
               },
               {
                 "color": "semi-dark-red",
-                "value": 1500
+                "value": 2000
               },
               {
                 "color": "dark-purple",
-                "value": 2000
+                "value": 5000
               }
             ]
           },
