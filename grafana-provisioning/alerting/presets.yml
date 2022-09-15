@@ -61,8 +61,6 @@ groups:
         annotations:
           summary: Device has not sent any sensor data in a long time.
           description: Device '{{ $$value | reReplaceAll `.*metric='(.*)'.*` "$$1" }}' has not sent a sensor value '{{ $$value | reReplaceAll `.*sensor=(.*), .*` "$$1" }}' in **{{ $$value | reReplaceAll `.*value=(.*) \]` "$$1" }} seconds**.
-          __dashboardUid__: device-overview
-          __panelId__: '15'
         labels:
           device: '{{ $$value | reReplaceAll `.*metric=''(.*)''.*` "$$1" }}'
       - uid: co2
@@ -122,7 +120,5 @@ groups:
         annotations:
           summary: Device has reported high CO2 levels.
           description: Device '{{ $$value | reReplaceAll `.*metric='(.*)'.*` "$$1" }}' has reported a CO2 value of **{{ $$value | reReplaceAll `.*value=(.*) \]` "$$1" }} ppm**.
-          __dashboardUid__: device-overview
-          __panelId__: '2'
         labels:
           device: '{{ $$value | reReplaceAll `.*metric=''(.*)''.*` "$$1" }}'
