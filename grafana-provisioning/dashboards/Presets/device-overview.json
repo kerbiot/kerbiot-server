@@ -85,7 +85,7 @@
         },
         "textMode": "value_and_name"
       },
-      "pluginVersion": "9.1.4",
+      "pluginVersion": "9.1.5",
       "targets": [
         {
           "datasource": {
@@ -188,7 +188,7 @@
           "showLegend": true
         },
         "tooltip": {
-          "mode": "single",
+          "mode": "multi",
           "sort": "none"
         }
       },
@@ -263,7 +263,7 @@
         "text": {},
         "textMode": "value"
       },
-      "pluginVersion": "9.1.4",
+      "pluginVersion": "9.1.5",
       "targets": [
         {
           "datasource": {
@@ -334,7 +334,7 @@
         "text": {},
         "textMode": "value"
       },
-      "pluginVersion": "9.1.4",
+      "pluginVersion": "9.1.5",
       "targets": [
         {
           "datasource": {
@@ -405,7 +405,7 @@
         "text": {},
         "textMode": "value"
       },
-      "pluginVersion": "9.1.4",
+      "pluginVersion": "9.1.5",
       "targets": [
         {
           "datasource": {
@@ -485,7 +485,7 @@
         },
         "textMode": "value"
       },
-      "pluginVersion": "9.1.4",
+      "pluginVersion": "9.1.5",
       "targets": [
         {
           "datasource": {
@@ -565,7 +565,7 @@
         },
         "textMode": "value"
       },
-      "pluginVersion": "9.1.4",
+      "pluginVersion": "9.1.5",
       "targets": [
         {
           "datasource": {
@@ -645,7 +645,7 @@
         },
         "textMode": "value"
       },
-      "pluginVersion": "9.1.4",
+      "pluginVersion": "9.1.5",
       "targets": [
         {
           "datasource": {
@@ -721,7 +721,7 @@
         },
         "textMode": "value"
       },
-      "pluginVersion": "9.1.4",
+      "pluginVersion": "9.1.5",
       "targets": [
         {
           "datasource": {
@@ -797,7 +797,7 @@
         },
         "textMode": "value"
       },
-      "pluginVersion": "9.1.4",
+      "pluginVersion": "9.1.5",
       "targets": [
         {
           "datasource": {
@@ -873,7 +873,7 @@
         },
         "textMode": "value"
       },
-      "pluginVersion": "9.1.4",
+      "pluginVersion": "9.1.5",
       "targets": [
         {
           "datasource": {
@@ -985,7 +985,7 @@
           "showLegend": true
         },
         "tooltip": {
-          "mode": "single",
+          "mode": "multi",
           "sort": "none"
         }
       },
@@ -1097,7 +1097,7 @@
           "showLegend": true
         },
         "tooltip": {
-          "mode": "single",
+          "mode": "multi",
           "sort": "none"
         }
       },
