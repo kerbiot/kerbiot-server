@@ -1,6 +1,5 @@
 version: '3.8'
 
-# https://github.com/jkehres/docker-compose-influxdb-grafana
 services:
 
   influxdb:
@@ -36,7 +35,6 @@ services:
     env_file: .env
     restart: always
 
-  # https://github.com/vvatelot/mosquitto-docker-compose
   mosquitto:
     container_name: mosquitto
     image: eclipse-mosquitto:latest
