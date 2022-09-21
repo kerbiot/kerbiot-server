@@ -679,7 +679,7 @@
                 "value": null
               },
               {
-                "color": "#EAB839",
+                "color": "orange",
                 "value": 35
               },
               {
@@ -755,7 +755,7 @@
                 "value": null
               },
               {
-                "color": "#EAB839",
+                "color": "orange",
                 "value": 35
               },
               {
@@ -831,7 +831,7 @@
                 "value": null
               },
               {
-                "color": "#EAB839",
+                "color": "orange",
                 "value": 35
               },
               {
@@ -1052,11 +1052,11 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "semi-dark-red",
+                "color": "red",
                 "value": null
               },
               {
-                "color": "#EAB839",
+                "color": "orange",
                 "value": 35
               },
               {
@@ -1068,7 +1068,7 @@
                 "value": 60
               },
               {
-                "color": "semi-dark-red",
+                "color": "red",
                 "value": 65
               }
             ]

@@ -86,7 +86,7 @@
         "text": {},
         "textMode": "value"
       },
-      "pluginVersion": "9.1.4",
+      "pluginVersion": "9.1.5",
       "targets": [
         {
           "datasource": {
@@ -166,7 +166,7 @@
         },
         "textMode": "value"
       },
-      "pluginVersion": "9.1.4",
+      "pluginVersion": "9.1.5",
       "targets": [
         {
           "datasource": {
@@ -200,7 +200,7 @@
                 "value": null
               },
               {
-                "color": "#EAB839",
+                "color": "orange",
                 "value": 35
               },
               {
@@ -242,7 +242,7 @@
         },
         "textMode": "value"
       },
-      "pluginVersion": "9.1.4",
+      "pluginVersion": "9.1.5",
       "targets": [
         {
           "datasource": {
