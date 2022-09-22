@@ -5,12 +5,10 @@ source .env
 
 BACKUP_NAME=$(date +"%Y-%m-%d-%H-%M-%S")
 
+QUERY="from(bucket: \"$INFLUX_BUCKET\") |> range(start: 0, stop: now())"
+
 echo "Backing up" $INFLUX_HOST
-curl -X POST 'https://'$INFLUX_HOST'/api/v2/query?org='$INFLUX_ORG\
-    --header 'authorization: Bearer '$INFLUX_TOKEN\
-    --header 'content-type: application/json'\
-    --data '{"query": "from(bucket: \"'$INFLUX_BUCKET'\")|> range(start: 0, stop: now())", "dialect": {"annotations": ["group","datatype","default"]}}'\
-    > $BACKUP_NAME.csv
+eval ./influx query --host 'https://'$INFLUX_HOST -o $INFLUX_ORG -t $INFLUX_TOKEN \'$QUERY\' --raw > $BACKUP_NAME.csv
 
 zip $BACKUP_NAME.zip $BACKUP_NAME.csv 
 rm $BACKUP_NAME.csv 
