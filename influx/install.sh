@@ -1,3 +1,6 @@
+#!/bin/bash
+set -e # exit on error
+
 VERSION=2.4.0
 ARCHITECTURE=amd64
 
