@@ -18,8 +18,7 @@ sudo apt install docker-ce docker-ce-cli containerd.io docker-compose-plugin -y
 
 echo "Adding current user to docker group ..."
 sudo groupadd docker
-sudo gpasswd -a $USER docker
-newgrp docker
+sudo usermod -aG docker $USER
 
 # --- Kerbiot setup ---
 echo "Setting up Kerbiot ..."
@@ -48,6 +47,7 @@ echo 'MOSQUITTO_USERNAME='\"kerbiot\" >> .env
 echo 'MOSQUITTO_PASSWORD='\"$MQTT_PASSWORD\" >> .env
 
 pushd ./mosquitto/certs
+sudo chmod +x ./_generate-certificates.sh
 ./_generate-certificates.sh $DOMAIN
 popd
 
