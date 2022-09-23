@@ -11,3 +11,6 @@
 **/*.key
 **/*.srl
 **/*.csr
+
+*.svg.bkp
+*.svg.dtmp

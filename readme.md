@@ -9,6 +9,8 @@ Contains:
 - Mosquitto: MQTT Broker
 - Telegraf: Writes MQTT messages into InfluxDB
 
+![](.resources/kerbiot-server-diagram.svg)
+
 ## Install
 
 ```sh
