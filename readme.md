@@ -9,20 +9,11 @@ Contains:
 - Mosquitto: MQTT Broker
 - Telegraf: Writes MQTT messages into InfluxDB
 
-## configure
-
-Create an `.env` file from `example.env`.
-
-For Mosquitto username and password use this command:
+## Install
 
 ```sh
-docker-compose exec mosquitto mosquitto_passwd -b /mosquitto/config/password.txt user password
-```
-
-## start
-
-Start the setup with
-
-```sh
-docker-compose up -d
+git clone https://github.com/kerbiot/kerbiot-server.git
+cd kerbiot-server
+chmod +x ./install.sh
+sudo ./install.sh
 ```
