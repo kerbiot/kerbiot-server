@@ -51,10 +51,10 @@ sudo chmod +x ./_generate-certificates.sh
 ./_generate-certificates.sh $DOMAIN
 popd
 
-docker-compose pull
-docker-compose up -d
-docker-compose exec mosquitto mosquitto_passwd -c -b /mosquitto/config/password.txt $MQTT_USER $MQTT_PASSWORD
-docker-compose restart mosquitto
+sudo docker-compose pull
+sudo docker-compose up -d
+sudo docker-compose exec mosquitto mosquitto_passwd -c -b /mosquitto/config/password.txt $MQTT_USER $MQTT_PASSWORD
+sudo docker-compose restart mosquitto
 
 # --- Disable firewall ---
 echo "Disabling firewall ..."
