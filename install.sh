@@ -82,6 +82,6 @@ sudo service nginx restart
 # --- Certbot ---
 echo "Running certbot ..."
 sudo apt install certbot python3-certbot-nginx -y
-sudo certbot --nginx -d '*.'$HEX'.nip.io'
+sudo certbot --nginx -d 'influx.'$HEX'.nip.io,grafana.'$HEX'.nip.io'
 sudo service nginx restart
 sudo certbot renew --dry-run
